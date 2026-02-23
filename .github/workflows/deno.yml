@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -16,10 +17,19 @@ on:
 
 permissions:
   contents: read
+=======
+name: Test Project
+
+on:
+  pull_request:
+    branches:
+      - main
+>>>>>>> 05b3dbd (demo using github action and a pull request)
 
 jobs:
   test:
     runs-on: ubuntu-latest
+<<<<<<< HEAD
 
     steps:
       - name: Setup repo
@@ -40,3 +50,14 @@ jobs:
 
       - name: Run tests
         run: deno test -A
+=======
+    container:
+      image: node:20
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+>>>>>>> 05b3dbd (demo using github action and a pull request)
